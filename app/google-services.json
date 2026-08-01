@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "73961959125",
+    "firebase_url": "https://gotilo-fa97d-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "gotilo-fa97d",
+    "storage_bucket": "gotilo-fa97d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73961959125:android:6aa4bf9314f94d1bd87c5c",
+        "android_client_info": {
+          "package_name": "com.example.gotilo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73961959125-9c11bm1d8p69m7f18f0h6n301s6l84k1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.access.gotilo",
+            "certificate_hash": "19bcb68f8cf585536c9a2af4ee131e68d2832181"
+          }
+        },
+        {
+          "client_id": "73961959125-di3q66tjrbqpb1snp4ldkht4s3afk5nt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1Us46eqUTKkv9509crveO9GQdfeckQlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "73961959125-di3q66tjrbqpb1snp4ldkht4s3afk5nt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

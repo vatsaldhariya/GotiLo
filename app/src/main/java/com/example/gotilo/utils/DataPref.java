@@ -3,6 +3,8 @@ package com.example.gotilo.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.gotilo.screen.RegisterActivity;
+
 public class DataPref {
 
     private static final String PREF_NAME = "GotiloDataPref";
@@ -10,10 +12,25 @@ public class DataPref {
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+    private Context context;
 
     public DataPref(Context context) {
+        this.context = context;
         sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+        // Removed the invalid saveDeviceId() call from here
+    }
+
+
+    // Call this to save the generated Device ID
+    public void saveDeviceId(String deviceId) {
+        editor.putString("DEVICE_ID", deviceId);
+        editor.apply();
+    }
+
+    // Call this to retrieve it
+    public String getDeviceId() {
+        return sharedPreferences.getString("DEVICE_ID", null);
     }
 
     // 1. Save the UID when they log in

@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class LocationModel {
 
-    // ==========================================
-    // Data we SEND to your Node.js backend
-    // ==========================================
-    @SerializedName("userId")
-    private String userId;
+    @SerializedName("uid")
+    private String uid;
+
+    @SerializedName("deviceId")
+    private String deviceId;
 
     @SerializedName("latitude")
     private double latitude;
@@ -16,41 +16,85 @@ public class LocationModel {
     @SerializedName("longitude")
     private double longitude;
 
-    @SerializedName("name")
-    private String name;
+    @SerializedName("address")
+    private String address;
 
-    @SerializedName("trackingType")
-    private String trackingType;
+    @SerializedName("alert_status")
+    private String alertStatus;
 
-    // ==========================================
-    // Data we RECEIVE back from your backend
-    // ==========================================
-    @SerializedName("success")
-    private boolean success;
+    // ADD THIS FIELD:
+    @SerializedName("timestamp")
+    private long timestamp;
 
-    @SerializedName("message")
-    private String message;
-
-    // 1. Required empty constructor (Prevents Gson crashes)
+    // Empty constructor (required for Gson/Firebase serialization)
     public LocationModel() {}
 
-    // 2. Constructor for packaging the GPS data to send
-    public LocationModel(String userId, double latitude, double longitude) {
-        this.userId = userId;
+    // Complete 7-argument constructor (Updated with timestamp)
+    public LocationModel(String uid, String deviceId, double latitude, double longitude, String address, String alertStatus, long timestamp) {
+        this.uid = uid;
+        this.deviceId = deviceId;
         this.latitude = latitude;
         this.longitude = longitude;
-
-        // These match the optional fields in your Node.js backend
-        this.name = "My Android Phone";
-        this.trackingType = "ONCE";
+        this.address = address;
+        this.alertStatus = alertStatus;
+        this.timestamp = timestamp;
     }
 
-    // 3. Getters to read the success message from the server
-    public boolean isSuccess() {
-        return success;
+    // Getters and Setters
+    public String getUid() {
+        return uid;
     }
 
-    public String getMessage() {
-        return message;
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAlertStatus() {
+        return alertStatus;
+    }
+
+    public void setAlertStatus(String alertStatus) {
+        this.alertStatus = alertStatus;
+    }
+
+    // ADD GETTER AND SETTER FOR TIMESTAMP:
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 }

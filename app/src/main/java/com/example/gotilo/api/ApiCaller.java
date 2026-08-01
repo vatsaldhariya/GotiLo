@@ -1,45 +1,39 @@
 package com.example.gotilo.api;
+
 import com.example.gotilo.model.LocationModel;
 import com.example.gotilo.model.LoginModel;
-import com.example.gotilo.model.RegisterRequest;
+import com.example.gotilo.model.RegisterModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 
 public class ApiCaller {
-    private ApiService apiService;
+    private final ApiService apiService;
 
     public ApiCaller() {
-        // Initialize the service
         apiService = RetrofitClient.getClient().create(ApiService.class);
     }
 
-    public void registerUser(String email, String password, String name, Callback<RegisterRequest> callback) {
-        RegisterRequest request = new RegisterRequest(email, password, name);
-        Call<RegisterRequest> call = apiService.registerUser(request);
+    public ApiService getApiService() {
+        return apiService;
+    }
 
-        // enqueue() runs the request asynchronously on a background thread
+    public void registerUser(String email, String password, String name, String fcmToken, String deviceId, Callback<RegisterModel> callback) {
+        RegisterModel request = new RegisterModel(email, password, name, fcmToken, deviceId);
+        Call<RegisterModel> call = apiService.registerUser(request);
         call.enqueue(callback);
     }
 
-    public void loginUser(String email, String password, Callback callback) {
+    public void loginUser(String email, String password, Callback<LoginModel> callback) {
         LoginModel request = new LoginModel(email, password);
-        Call call = apiService.loginUser(request);
+        Call<LoginModel> call = apiService.loginUser(request);
         call.enqueue(callback);
     }
 
-    // ---> ADD THIS ENTIRE BLOCK <---
-    public void saveLocation(String userId, double lat, double lng, Callback callback) {
-        // 1. Package the data using the LocationModel we created earlier
-        LocationModel request = new LocationModel(userId, lat, lng);
-
-        // 2. Call the endpoint defined in ApiService
-        Call call = apiService.saveLocation(request);
-
-        // 3. Put it in the queue to execute
+    public void saveLocation(String userId, String deviceId, double lat, double lng, String address, Callback<LocationModel> callback) {
+        // Pass System.currentTimeMillis() as the 7th parameter:
+        LocationModel request = new LocationModel(userId, deviceId, lat, lng, address, "normal", System.currentTimeMillis());
+        Call<LocationModel> call = apiService.saveLocation(request);
         call.enqueue(callback);
-
     }
-
-
 }
