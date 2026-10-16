@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@drawable/bg_card_glass"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Warning Icon -->
+    <!-- Warning Icon -->
+    <ImageView
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_secure_lock" />
+
+    <!-- Eyebrow Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:letterSpacing="0.1"
+        android:text="ACTION REQUIRED"
+        android:textAlignment="center"
+        android:textColor="#8B5CF6"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <!-- Main Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Device Unsecured"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:lineSpacingExtra="4dp"
+        android:text="Gotilo requires a lock screen password (PIN or Pattern). Without this, thieves can exploit loopholes to bypass security."
+        android:textAlignment="center"
+        android:textColor="#8B9BB4"
+        android:textSize="14sp" />
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <!-- Exit Button (Subtle styling) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDialogExit"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="Exit App"
+            android:textColor="#8B9BB4"
+            app:backgroundTint="#090D17"
+            app:cornerRadius="12dp"
+            app:strokeColor="#8B9BB4"
+            app:strokeWidth="1dp" />
+
+        <!-- Set Password Button (Primary purple styling) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDialogSetPassword"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1.2"
+            android:text="Set Password"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#8B5CF6"
+            app:cornerRadius="12dp" />
+    </LinearLayout>
+</LinearLayout>

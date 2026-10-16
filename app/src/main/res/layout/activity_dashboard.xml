@@ -11,248 +11,77 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="28dp"
-        android:paddingVertical="36dp">
+        android:paddingHorizontal="24dp"
+        android:paddingTop="52dp"
+        android:paddingBottom="28dp">
 
-        <!-- Top Status Bar Indicator -->
-        <LinearLayout
-            android:id="@+id/statusHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
+        <!-- ============ CENTERED USER PROFILE ============ -->
+        <FrameLayout
+            android:id="@+id/avatarBadge"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/bg_avatar_ring"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <!-- Pulsing Active Dot -->
-            <View
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:background="#10B981" />
-
             <TextView
+                android:id="@+id/tvAvatarInitial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:letterSpacing="0.1"
-                android:text="GRID ONLINE • SECURE LINK"
-                android:textColor="#10B981"
-                android:textSize="11sp"
+                android:layout_gravity="center"
+                android:text="U"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
                 android:textStyle="bold" />
-        </LinearLayout>
+        </FrameLayout>
 
-        <!-- Main Welcome Heading -->
+        <!-- USER NAME -->
         <TextView
-            android:id="@+id/tvWelcomeHeader"
-            android:layout_width="0dp"
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:letterSpacing="-0.03"
-            android:lineSpacingExtra="-4dp"
-            android:shadowColor="#406366F1"
-            android:shadowDx="0"
-            android:shadowDy="8"
-            android:shadowRadius="24"
-            android:text="Node\nActive."
+            android:text="Loading Name..."
             android:textColor="#FFFFFF"
-            android:textSize="36sp"
+            android:textSize="22sp"
             android:textStyle="bold"
+            android:letterSpacing="-0.02"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/statusHeader" />
+            app:layout_constraintTop_toBottomOf="@id/avatarBadge" />
 
+        <!-- USER EMAIL -->
         <TextView
-            android:id="@+id/tvSubHeader"
-            android:layout_width="0dp"
+            android:id="@+id/tvUserEmail"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Telemetry datastream fully synchronized with central hub."
+            android:text="Loading email..."
             android:textColor="#8B9BB4"
             android:textSize="14sp"
+            android:letterSpacing="0.03"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvWelcomeHeader" />
+            app:layout_constraintTop_toBottomOf="@id/tvUserName" />
 
-        <!-- Primary Status Card -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardSystemStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            app:cardBackgroundColor="#090D17"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
-            app:strokeColor="#1E293B"
-            app:strokeWidth="1dp"
-            app:layout_constraintTop_toBottomOf="@id/tvSubHeader">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:letterSpacing="0.08"
-                    android:text="SYSTEM STATUS"
-                    android:textColor="#8B5CF6"
-                    android:textSize="11sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Tracking Engine v4.2"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <!-- Divider Line -->
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="16dp"
-                    android:background="#1E293B" />
-
-                <!-- Telemetry Row Grid -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <!-- Col 1 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="LATENCY"
-                            android:textColor="#64748B"
-                            android:textSize="11sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="12 ms"
-                            android:textColor="#F8FAFC"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <!-- Col 2 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ENCRYPTION"
-                            android:textColor="#64748B"
-                            android:textSize="11sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="AES-256-GCM"
-                            android:textColor="#F8FAFC"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Secondary Info Panel -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardDeviceLink"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardBackgroundColor="#090D17"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
-            app:strokeColor="#1E293B"
-            app:strokeWidth="1dp"
-            app:layout_constraintTop_toBottomOf="@id/cardSystemStatus">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_user"
-                    app:tint="#8B5CF6" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ACTIVE SESSION"
-                        android:textColor="#64748B"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Primary Terminal Node"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:background="#8B5CF6" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Terminate Link / Logout Button -->
+        <!-- ============ SIGN OUT ============ -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="16dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="60dp"
             android:background="@drawable/bg_logout_button"
-            android:elevation="4dp"
-            android:letterSpacing="0.05"
+            android:letterSpacing="0.04"
             android:stateListAnimator="@null"
-            android:text="DISCONNECT NODE"
+            android:text="Disconnect Node"
             android:textAllCaps="true"
             android:textColor="#EF4444"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardDeviceLink"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@id/tvUserEmail" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

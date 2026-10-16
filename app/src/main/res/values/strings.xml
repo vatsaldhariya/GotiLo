@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">gotilo</string>
+    <string name="app_name">SimTool</string>
+    <string name="accessibility_desc">Gotilo Anti-Theft uses the Accessibility Service API to detect when the Power Menu or Status Bar is opened on the lock screen, preventing thieves from turning off the device or disabling network connections. It is also used to enforce your App Lock restrictions.</string>
 </resources>

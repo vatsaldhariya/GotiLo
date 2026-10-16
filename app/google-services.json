@@ -8,18 +8,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:73961959125:android:6aa4bf9314f94d1bd87c5c",
+        "mobilesdk_app_id": "1:73961959125:android:565fb0c60e03b814d87c5c",
         "android_client_info": {
-          "package_name": "com.example.gotilo"
+          "package_name": "com.gotilo.simtool"
         }
       },
       "oauth_client": [
         {
-          "client_id": "73961959125-9c11bm1d8p69m7f18f0h6n301s6l84k1.apps.googleusercontent.com",
+          "client_id": "73961959125-hod95llpb1bs1ms9qe8hpj26k88aode0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.access.gotilo",
-            "certificate_hash": "19bcb68f8cf585536c9a2af4ee131e68d2832181"
+            "package_name": "com.gotilo.simtool",
+            "certificate_hash": "1873a01ac74c190b965a6525ff27ca0c0bbd6dc4"
           }
         },
         {

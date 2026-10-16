@@ -7,7 +7,7 @@ This document provides a detailed breakdown of the Gotilo Android application, c
 
 ---
 
-## 2. Package Structure (`com.example.gotilo`)
+## 2. Package Structure (`com.gotilo.simtool`)
 
 ### 📂 `api` - Networking Layer
 Handles all communication with the backend server using Retrofit.
