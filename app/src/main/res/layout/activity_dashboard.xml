@@ -67,21 +67,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvUserName" />
 
-        <!-- ============ SIGN OUT ============ -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="60dp"
-            android:background="@drawable/bg_logout_button"
-            android:letterSpacing="0.04"
-            android:stateListAnimator="@null"
-            android:text="Disconnect Node"
-            android:textAllCaps="true"
-            android:textColor="#EF4444"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/tvUserEmail" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
