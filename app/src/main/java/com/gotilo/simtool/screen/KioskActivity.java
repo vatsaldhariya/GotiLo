@@ -15,12 +15,8 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -236,7 +232,6 @@ public class KioskActivity extends AppCompatActivity {
         super.onWindowFocusChanged(hasFocus);
 
         // If the window loses focus, but the user hasn't legitimately unlocked the app
-        // (meaning the system unpin dialog popped up or they successfully unpinned)
         if (!hasFocus && !isUnlocking && !isShowingSystemUI) {
             Log.w(TAG, "🚨 Possible Unpin attempt detected (Focus Lost)! Forcing screen lock.");
             performInstantLock();
@@ -280,52 +275,6 @@ public class KioskActivity extends AppCompatActivity {
 
         // 6. Otherwise, let the touch proceed normally in the safe center zone
         return super.dispatchTouchEvent(ev);
-    }
-
-    private void showOfflineKeyDialog() {
-        isShowingSystemUI = true;
-        removeSystemOverlays();
-
-        View dialogView = getLayoutInflater().inflate(R.layout.dialog_offline_unlock, null);
-        EditText editKey = dialogView.findViewById(R.id.editOfflineKey);
-        TextView tvError = dialogView.findViewById(R.id.tvDialogError);
-        Button btnCancel = dialogView.findViewById(R.id.btnDialogCancel);
-        Button btnUnlock = dialogView.findViewById(R.id.btnDialogUnlock);
-
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setView(dialogView)
-                .setCancelable(false)
-                .create();
-
-        if (dialog.getWindow() != null) {
-            dialog.getWindow().setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
-        }
-
-        btnCancel.setOnClickListener(v -> {
-            dialog.dismiss();
-            isShowingSystemUI = false;
-            injectSystemOverlays();
-        });
-
-        btnUnlock.setOnClickListener(v -> {
-            String enteredKey = editKey.getText().toString().trim();
-            if ("123456".equals(enteredKey)) {
-                dialog.dismiss();
-                isShowingSystemUI = false;
-                unlockDevice();
-            } else {
-                tvError.setVisibility(View.VISIBLE);
-                tvError.setText("🚨 Invalid Release Key! Please try again.");
-                editKey.setText("");
-            }
-        });
-
-        dialog.setOnDismissListener(d -> {
-            isShowingSystemUI = false;
-            if (isUnlocking) removeSystemOverlays();
-            else injectSystemOverlays();
-        });
-        dialog.show();
     }
 
     @Override

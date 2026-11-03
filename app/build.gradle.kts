@@ -11,14 +11,22 @@ android {
         }
     }
 
+    ndkVersion = "27.0.11718014"
+
     defaultConfig {
         applicationId = "com.gotilo.simtool"
         minSdk = 24
         targetSdk = 36
-        versionCode = 2
-        versionName = "1.1"
+        versionCode = 5
+        versionName = "1.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = false
+        }
     }
 
     buildTypes {
@@ -59,13 +67,12 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.google.android.gms:play-services-location:21.3.0")
 
-    // 🛑 FIXED: Changed 'def' to 'val' for Kotlin DSL compatibility
-    val camerax_version = "1.3.0"
+    val camerax_version = "1.4.0"
     implementation("androidx.camera:camera-core:$camerax_version")
     implementation("androidx.camera:camera-camera2:$camerax_version")
     implementation("androidx.camera:camera-lifecycle:$camerax_version")
     implementation("androidx.camera:camera-video:$camerax_version")
+
     implementation("androidx.lifecycle:lifecycle-service:2.6.2")
-    implementation("androidx.camera:camera-video:1.3.1")
     implementation ("com.google.firebase:firebase-appcheck-playintegrity")
 }
